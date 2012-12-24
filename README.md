@@ -1,3 +1,3 @@
 # html-split examples
 
-Showing the full power of html-split
+Shows how to work with html-split
