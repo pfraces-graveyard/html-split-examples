@@ -9,7 +9,7 @@
     "express": "*",
     "jade": "*",
     "stylus": "*",
-    "dal": "*"
+    "dal": "*",
     "html-split": "*"
   }
 }
