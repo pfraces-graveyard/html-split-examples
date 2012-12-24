@@ -1,0 +1,49 @@
+extends layout
+
+block js
+  script(src='/javascripts/dal.js')
+  script(src='/javascripts/html-split.js')
+  script(src='/javascripts/example.js')
+
+block content
+  #ui
+    button(onclick='run()') Split!
+  #test
+    #content.left
+      h1 Welcome to #{title}
+      p A versatile tool for advanced layout control
+      h1 Another title
+      p With text about nothing
+      h2 Here is a nested list
+      ul
+        li one
+        li two
+        li three
+        li four
+          ul
+            li forty-one
+            li forty-two
+            li forty-three
+            li forty-four
+            li forty-five
+        li five
+        li six
+        li seven
+        li eight
+        li nine
+      h1 Lorem Ipsum
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+    #split.left
+    .clear
+  #todo
+    ul
+      li Listas anidadas (respetar jerarquía de nodos)
+      li Separar por palabra
+      li Deshacer acción que causa desbordamiento
+      li.
+        Cuando el contenido no quepa, ofrecer una versión cortada:
+        Poner el contenido bajo un div con overflow: hidden
