@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #333;
+  background-color: #ccc;
 }
 .left {
   position: relative;
@@ -14,9 +14,6 @@ body {
   padding: 0.5em 2em;
   background-color: #000;
 }
-#test {
-  background-color: #ccc;
-}
 #content {
   background-color: #fff;
   border: 1px solid #000;
@@ -28,7 +25,4 @@ body {
   background-color: #fff;
   border: 1px solid #000;
   overflow: hidden;
-}
-#todo {
-  color: #ccc;
 }
