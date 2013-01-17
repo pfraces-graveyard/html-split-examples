@@ -2,15 +2,18 @@
 
 Split html in divs
 
-**html-split** only depends on [DAL](https://github.com/pfraces/dal), a
-micro-library for dealing with the DOM
+**html-split** only depends on:
+*   [jsLib](https://github.com/pfraces/jslib), a general purpose JavaScript
+    micro-library
+*   [DAL](https://github.com/pfraces/dal), a micro-library for dealing with the
+    DOM
 
-**DAL** has been created explicitly for this project, so more than a
-dependency is its standard library
+Both has been created explicitly for this project, hence they limited set of
+features, but can be used on its own offering a simple yet powerful toolset
 
 # Example
 
-Shows the use of **html-split** and **DAL** in combination
+Shows the usage of **html-split** and **DAL** in combination
 
 ## HTML
 
@@ -20,21 +23,25 @@ First, a little markup to be splitted
 <div id="ui">
   <button onclick="run()">Split!</button>
 </div>
-<div id="content" class="left">
-  <h1>Welcome to html-split</h1>
-  <p>Some text here</p>
-  <div id="foo">
+<div id="test">
+  <div id="content" class="left">
+    <h1>Welcome to html-split</h1>
+    <p>A versatile tool for advanced layout control</p>
     <h1>Another title</h1>
     <p>With weird text about nothing</p>
-  </div>
-  <h2>Finaly a subtitle</h2>
-  <p>with final content</p>
-  <div id="bar">
+    <h2>Here is a nested list</h2>
     <ul>
      <li> one    </li>
      <li> two    </li>
      <li> three  </li>
      <li> four   </li>
+     <ul>
+       <li> forty-one    </li>
+       <li> forty-two    </li>
+       <li> forty-three  </li>
+       <li> forty-four   </li>
+       <li> forty-five   </li>
+     </ul>
      <li> five   </li>
      <li> six    </li>
      <li> seven  </li>
@@ -42,11 +49,21 @@ First, a little markup to be splitted
      <li> nine   </li>
      <li> ten    </li>
     </ul>
+    <h1>Lorem Ipsum</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+    <div id="split" class="left"></div>
+    <div class="clear"></div>
   </div>
-  <div id="split" class="left"></div>
 </div>
 
+<script src="jslib.js">
 <script src="dal.js">
+<script src="modal.js">
 <script src="html-split.js">
 <script src="example.js">
 ```
@@ -56,28 +73,44 @@ First, a little markup to be splitted
 Some style for a good experiencie
 
 ```css
+body {
+  margin: 0;
+  background-color: #333;
+}
 .left {
   position: relative;
   float: left;
   margin: 2em;
 }
+.clear {
+  clear: both;
+}
 #ui {
-  margin: 2em;
+  padding: 0.5em 2em;
+  background-color: black;
+}
+#test {
+  background-color: #ccc;
 }
 #content {
-  border: 1px solid #000;
+  background-color: white;
+  border: 1px solid black;
   padding: 2em;
+  width: 20em;
+}
+.token {
+  margin: 2em;
 }
 ```
 
 ## JavaScript
 
-Finally, the expected **example.js:**
+Finally, the **example.js:**
 
 ```js
 run = function () {
   var size = { width: '20em', height: '10em' }
-    , tokens = split(dal('content').innerHTML, size)
+    , tokens = split(dal('content').getHtml(), size)
     , original = dal().color({ bg: 'red', fg: 'white' }).size(size);
     
   for (var i = 0; i < tokens.length; i++)

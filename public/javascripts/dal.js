@@ -1,1 +1,1 @@
-../../node_modules/html-split/node_modules/dal/lib/index.js
+../../node_modules/dal/lib/index.js
